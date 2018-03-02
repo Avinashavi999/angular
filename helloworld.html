@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>
+<script>
+angular.module('avinash',[]).controller('sivakumaran',function($scope){
+$scope.name="";
+$scope.lastname="";
+$scope.users=[];
+$scope.add=function(){
+alert("hi");
+var user={
+"name":$scope.name,
+"lastname":$scope.lastname
+}
+//return $scope.fullname=$scope.name+""+$scope.lastname;
+return $scope.users.push(user);
+}
+$scope.remove=function(index){
+  //$scope.users.pop();
+  $scope.users.splice(index,1);
+}
+});
+</script>
+<body>
+
+<div ng-app="avinash" ng-controller="sivakumaran">
+ 
+<p>add you name in input box:</p>
+<p>Name : <input type="text" ng-model="name" placeholder="Enter name here">
+<p>lastName : <input type="text" ng-model="lastname" placeholder="Enter name here">
+<button ng-click="add()">add</button>
+
+
+<table>
+<tr>
+<td>firstname<td>
+<td>father name<td>
+</tr>
+<tr ng-repeat="p in users">
+<td>{{p.name}}</td>
+<td>{{p.lastname}}</td>
+<td><button ng-click="remove($index)">remove</button></td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>
+
+
+
+
+
+  
